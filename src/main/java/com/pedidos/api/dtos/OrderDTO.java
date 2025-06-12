@@ -2,6 +2,8 @@ package com.pedidos.api.dtos;
 
 import java.util.List;
 
+import com.pedidos.api.models.Order;
+
 public class OrderDTO {
     private Long id;
     private String orderDate;
@@ -50,6 +52,10 @@ public class OrderDTO {
     }
 
     public OrderDTO() {
+    }
+
+    public OrderDTO(Order createdOrder) {
+        //TODO Auto-generated constructor stub
     }
     
 }

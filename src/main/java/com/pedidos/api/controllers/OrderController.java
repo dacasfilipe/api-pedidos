@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+import com.pedidos.api.dtos.OrderDTO;
 import com.pedidos.api.models.Order;
 
 @RestController
@@ -28,9 +29,10 @@ public class OrderController {
     }
     
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        Order createdOrder = orderService.createOrder(order);
-        return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
+    public ResponseEntity<OrderDTO> createOrder(@RequestBody OrderDTO orderDTO) {
+        Order createdOrder = orderService.createOrder(orderDTO);
+        OrderDTO createdOrderDTO = new OrderDTO(createdOrder); // Assuming a constructor or method exists to convert Order to OrderDTO
+        return new ResponseEntity<>(createdOrderDTO, HttpStatus.CREATED);
     }
     
     @PutMapping("/{id}")

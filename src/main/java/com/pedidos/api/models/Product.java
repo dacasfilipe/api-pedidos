@@ -13,6 +13,10 @@ public class Product {
   @Column(nullable = false)
   private Double price;
 
+  public Product(Long id2, String name2, Double price2) {
+    //TODO Auto-generated constructor stub
+  }
+
   // getters/setters...
   public Long getId() {
     return id;
