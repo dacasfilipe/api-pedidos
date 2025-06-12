@@ -1,4 +1,3 @@
-
 package com.pedidos.api.controllers;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.pedidos.api.exceptions.ClientNotFoundException;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
 
 @RestController
 @RequestMapping("/api/clients")
