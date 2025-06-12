@@ -16,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import com.pedidos.api.exceptions.ClientNotFoundException;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestController
@@ -47,11 +46,7 @@ public class ClientController {
         clientService.deleteClient(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    @ExceptionHandler(ClientNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleClientNotFoundException(ClientNotFoundException ex) {
-        return ex.getMessage();
-    }
+    
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleException(Exception ex) {

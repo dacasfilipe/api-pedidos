@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import com.pedidos.api.exceptions.OrderNotFoundException;
 import com.pedidos.api.models.Order;
-import com.pedidos.api.services.OrderService;
+
 @RestController
 @RequestMapping("/api/orders")
 @CrossOrigin(origins = "*")

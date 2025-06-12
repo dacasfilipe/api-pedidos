@@ -18,7 +18,6 @@ import com.pedidos.api.services.ProductService;
 import com.pedidos.api.models.Product;
 import java.util.List;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import com.pedidos.api.exceptions.ProductNotFoundException;
 import org.springframework.web.bind.annotation.ResponseStatus;
 @RestController
 @RequestMapping("/api/products")
@@ -57,11 +56,7 @@ public class ProductController {
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    @ExceptionHandler(ProductNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleProductNotFoundException(ProductNotFoundException ex) {
-        return ex.getMessage();
-    }
+    
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)   
     public String handleException(Exception ex) {
