@@ -1,3 +1,4 @@
+package com.pedidos.api.dtos;
 public class ProductDTO {
     private Long id;
     private String name;

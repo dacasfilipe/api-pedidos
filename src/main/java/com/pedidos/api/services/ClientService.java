@@ -3,7 +3,7 @@ package com.pedidos.api.services;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import com.pedidos.api.models.Client;
-import com.pedidos.api.repositories.ClientRepository;
+import com.pedidos.api.repositorys.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
@@ -47,5 +47,25 @@ public class ClientService {
     @Transactional(readOnly = true)
     public List<Client> findByEmailContaining(String email) {
         return clientRepository.findByEmailContaining(email);
+    }
+    public List<Client> getAllClients(String name) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllClients'");
+    }
+    public Client getClientById(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getClientById'");
+    }
+    public Client createClient(Client client) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createClient'");
+    }
+    public Client updateClient(Long id, Client client) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateClient'");
+    }
+    public void deleteClient(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteClient'");
     }
 }

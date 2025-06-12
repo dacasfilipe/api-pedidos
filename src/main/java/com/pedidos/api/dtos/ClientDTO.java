@@ -1,3 +1,4 @@
+package com.pedidos.api.dtos;
 public class ClientDTO {
     private Long id;
     private String name;

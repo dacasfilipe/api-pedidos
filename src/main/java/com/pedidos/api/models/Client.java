@@ -1,3 +1,4 @@
+package com.pedidos.api.models;
 import jakarta.persistence.*;
 import java.util.Set;
 
