@@ -34,6 +34,9 @@ public class OrderService {
         if (orderDTO == null) {
             throw new IllegalArgumentException("Order cannot be null");
         }
+        if (orderDTO.getClient() == null) {
+            throw new IllegalArgumentException("Client cannot be null when creating an order.");
+        }
         Order order = new Order();
         // Convert ClientDTO to Client
         Client client = new Client();
