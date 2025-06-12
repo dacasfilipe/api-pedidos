@@ -14,7 +14,7 @@ public class Client {
   @Column(nullable = false, unique = true)
   private String email;
 
-  @OneToMany(mappedBy = "cliente")
+  @OneToMany(mappedBy = "client")
   private Set<Order> orders;
 
   // getters/setters...
