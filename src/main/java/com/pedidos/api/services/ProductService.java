@@ -33,33 +33,40 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public List<Product> getAllProducts(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllProducts'");
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
     public Product getProductById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProductById'");
+        return productRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found with id: " + id));
     }
 
     public Product createProduct(Product product) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createProduct'");
+        return productRepository.save(product);
     }
 
     public Product updateProduct(Long id, Product product) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateProduct'");
+        Product existingProduct = getProductById(id);
+        existingProduct.setName(product.getName());
+        existingProduct.setPrice(product.getPrice());
+        
+        return productRepository.save(existingProduct);
     }
 
     public Product partialUpdateProduct(Long id, Product product) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'partialUpdateProduct'");
+        Product existingProduct = getProductById(id);
+        if (product.getName() != null) {
+            existingProduct.setName(product.getName());
+        }
+        if (product.getPrice() != null) {
+            existingProduct.setPrice(product.getPrice());
+        }
+        
+        return productRepository.save(existingProduct);
     }
 
     public void deleteProduct(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteProduct'");
+        productRepository.deleteById(id);
     }
 }

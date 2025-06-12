@@ -40,25 +40,20 @@ public class ClientService {
     public boolean existsById(Long id) {
         return clientRepository.existsById(id);
     }
+    
     @Transactional(readOnly = true)
-    public List<Client> findByNameContaining(String name) {
-        return clientRepository.findByNameContaining(name);
-    }
-    @Transactional(readOnly = true)
-    public List<Client> findByEmailContaining(String email) {
-        return clientRepository.findByEmailContaining(email);
-    }
-    public List<Client> getAllClients(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllClients'");
+    public List<Client> getAllClients() {
+        return clientRepository.findAll();
     }
     public Client getClientById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getClientById'");
     }
     public Client createClient(Client client) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createClient'");
+        if (client == null) {
+            throw new IllegalArgumentException("Client cannot be null");
+        }
+        return clientRepository.save(client);
     }
     public Client updateClient(Long id, Client client) {
         // TODO Auto-generated method stub

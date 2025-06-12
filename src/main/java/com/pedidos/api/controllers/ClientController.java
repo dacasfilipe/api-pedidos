@@ -25,8 +25,8 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
     @GetMapping
-    public List<Client> getAllClients(@RequestParam(required = false) String name) {
-        return clientService.getAllClients(name);
+    public List<Client> getAllClients() {
+        return clientService.getAllClients();
     }
     @GetMapping("/{id}")
     public Client getClientById(@PathVariable Long id) {
